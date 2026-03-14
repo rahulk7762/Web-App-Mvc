@@ -11,13 +11,13 @@ public class WelcomeController {
 	@GetMapping("/")
 	public String greeting() {
 		System.out.println("WelcomeController.greeting()");
-		return "index.jsp";
+		return "index";
 	}
 	
 	@GetMapping("/login")
 	public String LoginUser() {
 		System.out.println("WelcomeController.LoginUser()");
-		return "login.jsp";
+		return "login";
 	}
 	
 	
@@ -25,7 +25,7 @@ public class WelcomeController {
 	@GetMapping("/signup")
 	public String CreateUser() {
 		System.out.println("WelcomeController.greeting()");
-		return "success.jsp";
+		return "success";
 	}
 	
 	
