@@ -3,6 +3,7 @@ package com.spring.mvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -25,9 +26,17 @@ public class WelcomeController {
 	
 	
 	@GetMapping("/req-param")
-	public String CreateUser(@RequestParam(name = "user", defaultValue = "MY-NAME") String name, Model model) {
+	public String CreateUser(@RequestParam(name = "user", defaultValue = "MY-DEFAULT-NAME") String name, Model model) {
 		model.addAttribute("user", name);
 		System.out.println("WelcomeController.greeting()");
+		return "success";
+	}
+	
+	
+	@GetMapping("/path-var/{id}")
+	public String PathVarExample(@PathVariable(name = "id") int id, Model model) {
+		model.addAttribute("user", "sorry this :"+id+"Not found in our DB");
+		System.out.println("WelcomeController.PathVarExample()");
 		return "success";
 	}
 	
