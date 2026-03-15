@@ -2,6 +2,7 @@ package com.spring.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WelcomeController {
@@ -22,8 +23,9 @@ public class WelcomeController {
 	
 	
 	
-	@GetMapping("/signup")
-	public String CreateUser() {
+	@GetMapping("/req-param")
+	public String CreateUser(@RequestParam(name = "user") String name,org.springframework.ui.Model model) {
+		model.addAttribute("user",name);
 		System.out.println("WelcomeController.greeting()");
 		return "success";
 	}
