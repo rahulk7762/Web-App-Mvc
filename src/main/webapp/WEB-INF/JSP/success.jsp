@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="pink">
-<h1>Welcome to the Profile</h1>
+<h1>Welcome to the Profile ${user}</h1>
 </body>
 </html>
