@@ -25,7 +25,7 @@ public class WelcomeController {
 	
 	
 	@GetMapping("/req-param")
-	public String CreateUser(@RequestParam(name = "user") String name, Model model) {
+	public String CreateUser(@RequestParam(name = "user", defaultValue = "MY-NAME") String name, Model model) {
 		model.addAttribute("user", name);
 		System.out.println("WelcomeController.greeting()");
 		return "success";
