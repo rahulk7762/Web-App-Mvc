@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body bgcolor="Red">
-<h1>Welcome to the Login Page</h1>
+<body>
+<h1>Sliper</h1>
 </body>
 </html>
