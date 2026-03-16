@@ -31,7 +31,7 @@ public class UserController {
 		return "success";
 	}
 	
-	
+//	Note :-- read the data and set to the variable using the @RequestParam and the below i have done the same thing from the @ModelAttribute Employee user and also by making the model of the Employee
 	
 	@GetMapping("/getsignupform")
 	public String getForm2() {
