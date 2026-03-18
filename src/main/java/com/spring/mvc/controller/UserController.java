@@ -1,9 +1,13 @@
 package com.spring.mvc.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -11,6 +15,18 @@ import com.spring.mvc.model.Employee;
 
 @Controller
 public class UserController {
+	
+	static Map<Integer,Employee> map= null;
+	static int empId = 0;
+	static {
+		
+		map = new HashMap<>();
+		map.put(++empId, new Employee(empId,"Mukesh","IT","Noida"));
+		map.put(++empId, new Employee(empId,"Rakesh","IT","Noida"));
+		map.put(++empId, new Employee(empId,"Nitesh","IOT","Noida"));
+		map.put(++empId, new Employee(empId,"Abhishek","AI","Noida"));
+		map.put(++empId, new Employee(empId,"Nakul","IT","Noida"));
+	}
 
 	@GetMapping("/getform")
 	public String getForm() {
@@ -41,13 +57,25 @@ public class UserController {
 	
 	
 	@PostMapping("/createUser")
-	public String postUser(@ModelAttribute Employee user) {
+	public String postUser(@ModelAttribute Employee employee,Model model) {
 		
 		System.out.println("UserController.postUser()");
-		System.out.println(user);
+		employee.setId(++empId);
+		map.put(empId,employee);
 		
-		return "index";
+		System.out.println(employee);
+		return "success";
 	}
 	
+	
+
+	@GetMapping("/getEmpbyId/{id}")
+	public String gerUser(@PathVariable(name = "id") int id,Model model) {
+		
+		System.out.println("UserController.gerUser()");
+		Employee e = map.get(id);
+		model.addAttribute("employee",e);
+		return "success";
+	}
 	
 }
