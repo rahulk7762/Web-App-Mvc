@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spring.mvc.model.Employee;
 
 @Controller
-public class UserController {
+public class EmployeeController {
 	
 	static Map<Integer,Employee> map= null;
 	static int empId = 0;
